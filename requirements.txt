@@ -1,0 +1,2 @@
+# Python deps for the nano4g emCORE host tools (send_dfu, nro_*, libemcore, signing).
+pyusb>=1.2

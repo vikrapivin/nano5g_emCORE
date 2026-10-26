@@ -1,0 +1,67 @@
+//
+//
+//    Copyright 2010 TheSeven
+//
+//
+//    This file is part of emCORE.
+//
+//    emCORE is free software: you can redistribute it and/or
+//    modify it under the terms of the GNU General Public License as
+//    published by the Free Software Foundation, either version 2 of the
+//    License, or (at your option) any later version.
+//
+//    emCORE is distributed in the hope that it will be useful,
+//    but WITHOUT ANY WARRANTY; without even the implied warranty of
+//    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+//    See the GNU General Public License for more details.
+//
+//    You should have received a copy of the GNU General Public License along
+//    with emCORE.  If not, see <http://www.gnu.org/licenses/>.
+//
+//
+
+
+#ifndef __GLOBAL_H__
+#define __GLOBAL_H__
+
+
+#define ICODE_ATTR __attribute__((section(".icode")))
+#define ICONST_ATTR __attribute__((section(".irodata")))
+#define IDATA_ATTR __attribute__((section(".idata")))
+#define IBSS_ATTR __attribute__((section(".ibss")))
+#define INITHEAD_ATTR __attribute__((section(".inithead")))
+#define INITTAIL_ATTR __attribute__((section(".inittail")))
+#define INITCODE_ATTR __attribute__((section(".initcode")))
+#define INITCONST_ATTR __attribute__((section(".initrodata")))
+#define INITDATA_ATTR __attribute__((section(".initdata")))
+#define STACK_ATTR __attribute__((section(".stack")))
+#define LCDFB_ATTR __attribute__((section(".lcdfb")))  /* LCD framebuffer: pinned DRAM region (BUFFER-OVERFLOW-2026-09-24) */
+
+#ifndef ASM_FILE
+#include <stdarg.h>
+#include "libc/include/errno.h"
+#include "libc/include/inttypes.h"
+#include "libc/include/math.h"
+#include "libc/include/stdint.h"
+#include "libc/include/stdlib.h"
+#include "libc/include/string.h"
+#include "libc/include/sys/types.h"
+typedef int bool;
+#endif
+#define true 1
+#define false 0
+
+
+#ifndef IN_APPLICATION_CODE
+#ifndef _NO_VERSION_H_
+#include "build/version.h"
+#endif
+#include "configmagic.h"
+#endif
+#ifndef ASM_FILE
+#include "util.h"
+#include "debug.h"
+#endif
+
+
+#endif

@@ -1,0 +1,5 @@
+emCORE/build/
+__pycache__/
+.venv/
+recovery-image/
+build/

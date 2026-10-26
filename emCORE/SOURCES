@@ -1,0 +1,92 @@
+#include "target.h"
+
+#ifdef ARM_ARCH
+arm/arm-support.S
+arm/contextswitch.S
+arm/memcpy-arm.S
+arm/memmove-arm.S
+arm/memset-arm.S
+#endif
+
+init.c
+util.c
+malloc.c
+library.c
+#ifdef HAVE_LCD
+drawing.S
+lcdconsole.c
+progressbar.c
+#endif
+format.c
+panic.c
+console.c
+ucl.S
+thread.c
+#ifdef HAVE_USB
+usb/usb.c
+usb/usbglue.c
+usb/usbdebug.c
+#endif
+shutdown.c
+syscall.c
+#ifdef HAVE_STORAGE
+disk.c
+fat.c
+file.c
+dir.c
+storage.c
+#endif
+#ifdef HAVE_BUTTON
+button.c
+#endif
+strcasestr.c
+strcasecmp.c
+strlcpy.c
+strlcat.c
+execimage.c
+syscallapi.c
+crc32.c
+
+libc/strstr.c
+libc/strtok.c
+libc/atoi.c
+libc/ctype.c
+libc/memchr.c
+libc/memcmp.c
+libc/mktime.c
+libc/qsort.c
+libc/random.c
+libc/sprintf.c
+libc/sscanf.c
+libc/strcat.c
+libc/strchr.c
+libc/strcmp.c
+libc/strcpy.c
+libc/strlen.c
+libc/strncmp.c
+libc/strrchr.c
+libc/tlsf/tlsf.c
+
+#ifdef TARGET_ipodnano5g
+/* iPod nano 5G (S5L8730): docs/08-emcore-port-map.md */
+target/ipodnano5g/mmu.c
+target/ipodnano5g/targetinit.c
+target/ipodnano5g/lcd.c
+target/ipodnano5g/timer.c
+target/ipodnano5g/i2c.c
+target/ipodnano5g/interrupt.c
+target/ipodnano5g/power.c
+target/ipodnano5g/accel.c
+target/ipodnano5g/backlight.c
+target/ipodnano5g/clockgates.c
+target/ipodnano5g/hwkeyaes.c
+target/ipodnano5g/clickwheel.c
+#ifndef N5G_NAND_DISABLE
+target/ipodnano5g/nand5g.c
+target/ipodnano5g/nand/rbcompat.c
+target/ipodnano5g/module5g.c
+#endif
+/* nand/nand-nano5g.c and nand/ftl-nano4g.c (the Rockbox driver) are compiled by target.mk with the rbcompat headers */
+usb/synopsysotg.c
+usb/synopsysotg_s5l87xx.c
+#endif
